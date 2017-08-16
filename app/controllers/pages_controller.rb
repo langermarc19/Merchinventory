@@ -17,18 +17,17 @@ class PagesController < ApplicationController
 
 	def post_update_stock
 		@id = params[:id]	
-		@active_stock = params[:active_stock]
-		@inactive_stock = params[:inactive_stock]
+		@stock = params[:stock]
 		item = Item.find(@id)
 
 		if params[:deactivate]
 			item.deactivate
 		else
-			item.update_stock(@active_stock, @inactive_stock)
+			item.update_stock(@stock)
 		end
 
 		render :inventory
-		
+
 	end
 
 	def set_item 

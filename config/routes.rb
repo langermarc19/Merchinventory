@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   post '/items/:id/update_stock' , to: 'pages#post_update_stock'
 
 
+  
+
+
 
 
  

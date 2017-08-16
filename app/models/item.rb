@@ -12,8 +12,7 @@ class Item < ApplicationRecord
 		i.save!  
 
 		u.item_id = i.id 
-		u.active_stock = 0
-		u.inactive_stock = 0
+		u.stock = 0
 		u.save!
 	end
 
@@ -32,12 +31,11 @@ class Item < ApplicationRecord
 		u_current = updates_list.order('updated_at').last
 	end
 
-	def update_stock(active_stock,inactive_stock)
+	def update_stock(stock)
 		u = Update.new 
 
 		u.item_id = self.id
-		u.active_stock = active_stock
-		u.inactive_stock = inactive_stock
+		u.stock = stock
 		u.save!
 	end
 

@@ -14,12 +14,11 @@ table, th, td {
 </style>
 </head>
 <body>
-          MERCH INVENTORY
+MERCH INVENTORY - last updated at <%= Update.last.updated_at %> <br> <br>
 <table> 
 <th>Item</th> 
 <th>Size</th> 
-<th>Active Stock</th> 
-<th>Inactive Stock</th> 
+<th>Stock</th> 
 <th>Updates</th>
 
 <% @items_list.each do |item| 
@@ -27,8 +26,7 @@ table, th, td {
 <tr> 
 <td><%= item.item_name  %> </td>
 <td><%= item.size %> </td> 
-<td><%= item.current_stock[:active_stock] %> </td>
-<td><%= item.current_stock[:inactive_stock] %> </td>
+<td><%= item.current_stock[:stock] %> </td>
 <td><a href = <%= "#{item.item_url}/update_stock" %>> Update Stock </a></td>
 </tr>
 <% end end %> 

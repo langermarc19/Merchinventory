@@ -19,18 +19,15 @@ UPDATE STOCK for item "<%= @item.size %> <%= @item.item_name %>"
 Current Stock 
 <table> 
 <tr> 
-<td> Active: <%= @item.current_stock[:active_stock] %> </td> 
-<td> Inactive: <%= @item.current_stock[:inactive_stock] %> </td>
+<td> <%= @item.current_stock[:stock] %> </td> 
 </tr> 
 </table>
 <br>
 
 <form action = <%= "#{@item.item_url}/update_stock" %> method = "post"> 
-Active Stock <br>
-<input type = "integer" name = "active_stock">
+New Stock <br>
+<input type = "integer" name = "stock">
 <br>
-Inactive Stock <br>
-<input type = "integer" name = "inactive_stock"> 
 <br> 
 Deactivate?
 <input type = "radio" name = "deactivate"> 
