@@ -1,0 +1,63 @@
+<html> 
+<head> 
+
+<style> 
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 10px;
+	color: black;
+}	
+
+</style>
+</head>
+<body>
+          MERCH INVENTORY
+<table> 
+<th>Item</th> 
+<th>Size</th> 
+<th>Active Stock</th> 
+<th>Inactive Stock</th> 
+<th>Updates</th>
+
+<% @items_list.each do |item| 
+	if item.is_active %>
+<tr> 
+<td><%= item.item_name  %> </td>
+<td><%= item.size %> </td> 
+<td><%= item.current_stock[:active_stock] %> </td>
+<td><%= item.current_stock[:inactive_stock] %> </td>
+<td><a href = <%= "#{item.item_url}/update_stock" %>> Update Stock </a></td>
+</tr>
+<% end end %> 
+
+</table>
+<br> 
+
+<form action = "/inventory" method = "post"> 
+
+ADD NEW ITEM<br> 
+Item Name <br> 
+<input type = "text" name = "item_name"> 
+<br> 
+
+Size <br> 
+<input type = "text" name = "size">
+<br> 
+
+Price <br> 
+<input type = "number" step = "0.01" min = "0" name ="price"> 
+<br> 
+
+<input type = "submit"> 
+
+</form> 
+
+
+
+
+</body>
+</html>
+

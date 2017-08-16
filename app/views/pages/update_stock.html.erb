@@ -1,0 +1,53 @@
+<html> 
+<head> 
+
+<style> 
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 10px;
+	color: black;
+}	
+
+</style>
+</head>
+<body>
+UPDATE STOCK for item "<%= @item.size %> <%= @item.item_name %>"
+<br> <br> 
+Current Stock 
+<table> 
+<tr> 
+<td> Active: <%= @item.current_stock[:active_stock] %> </td> 
+<td> Inactive: <%= @item.current_stock[:inactive_stock] %> </td>
+</tr> 
+</table>
+<br>
+
+<form action = <%= "#{@item.item_url}/update_stock" %> method = "post"> 
+Active Stock <br>
+<input type = "integer" name = "active_stock">
+<br>
+Inactive Stock <br>
+<input type = "integer" name = "inactive_stock"> 
+<br> 
+Deactivate?
+<input type = "radio" name = "deactivate"> 
+<br>
+<br>
+
+<input type = "submit">
+
+</form>
+
+<!Must take id passed from item on inventory page, and also add id to params for post_update_stock automatically >
+
+
+
+
+
+
+</body>
+</html>
+
