@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'pages#home'
+  root 'pages#inventory'
 
   get '/inventory' , to: 'pages#inventory'
   post '/inventory' , to: 'pages#post_add_item'
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/items/:id/update_stock' , to: 'pages#post_update_stock'
 
 
-  
+
 
 
 
