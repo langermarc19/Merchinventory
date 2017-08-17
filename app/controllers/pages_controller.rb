@@ -40,6 +40,24 @@ class PagesController < ApplicationController
 		@items_list = Item.where('is_active = true')
 	end
 
+	def refresh_after_gig
+		SquareConnect.configure do |config|
+  		config.access_token = 'sq0atp-7VpgwBK3i7uwA0Wx8x6JLg' 
+  	    end
+
+
+		api = SquareConnect::TransactionsApi.new
+		begin_time = DateTime.now - (0.5) 
+		end_time = DateTime.now
+
+
+
+
+
+
+	end
+
+
 
 
 
