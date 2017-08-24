@@ -29,16 +29,33 @@ New Stock <br>
 <input type = "integer" name = "stock">
 <br>
 <br> 
+<u> Select Sizes to Update</u> <br> 
+S <input type = radio name = is_small> <br> 
+M <input type = radio name = is_medium> <br>
+L <input type = radio name = is_large> <br>
+XL<input type = radio name = is_xl> <br>
+<br> 
 Deactivate?
 <input type = "radio" name = "deactivate"> 
 <br>
 <br>
 
 <input type = "submit">
-
 </form>
 
-<!Must take id passed from item on inventory page, and also add id to params for post_update_stock automatically >
+<br> 
+UPDATE HISTORY 
+<table> 
+<% @item.updates.each do |update| %> 
+<tr> 
+<td> <%= update.updated_at %> </td>
+<td> <%= update.stock_change %> </td>
+</tr>
+<% end %> 
+</table>
+
+
+
 
 
 

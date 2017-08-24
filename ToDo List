@@ -1,0 +1,28 @@
+Add to Merchinventory: 
+
+-View Updates
+Plotting?
+Ways to viszualize?
+
+-stock can't be nil 
+-Square Subtraction 
+-rewrite if statements in pagescontroller - Jonny syntax
+-add "type" attribute to item
+-Sort list when rendered by type, alphabetical
+-sizes table, size foreign key 
+-item type table?
+-"edit" page styling 
+-notes on updates?
+-change for all sizes button on deactivate/reactivate link
+-Back to Inventory link on "deactivated"
+-change "inventory" url to "items"
+-STYLE:
+1)Get everything centered.
+
+
+
+-Item-specific update_id for Class Update. 
+would help with problems like update_history 
+(or add stock_change directly to each update...)
+
+

@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
 	has_many :updates, dependent: :destroy
 
+	#before_action :set_update_list, only: [:set_updates_list]
+
 	def self.add_item(item_name, size, price, is_active = true) 
 		i = self.new
 		u = Update.new
@@ -27,7 +29,7 @@ class Item < ApplicationRecord
 	end
 
 	def current_stock
-		updates_list = Update.where(item_id: self.id)
+		updates_list = Update.where({item_id: self.id})
 		u_current = updates_list.order('updated_at').last
 	end
 
@@ -37,6 +39,16 @@ class Item < ApplicationRecord
 		u.item_id = self.id
 		u.stock = stock
 		u.save!
+	end
+
+	def updates
+		updates = Update.where({item_id: self.id})
+	end
+
+	def prev_update(update_id)
+		u_list = self.updates
+		u_index = u_list.index(update_id)
+		prev_update = updates_list[update_index - 1]
 	end
 
 	def item_url
