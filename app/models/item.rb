@@ -31,6 +31,8 @@ class Item < ApplicationRecord
 	def current_stock
 		updates_list = Update.where({item_id: self.id})
 		u_current = updates_list.order('updated_at').last
+		
+		stock = u_current[:stock]
 	end
 
 	def update_stock(stock)

@@ -66,4 +66,9 @@ gem 'mysql2'
 
 gem 'square_connect'
 
+gem 'jquery-rails'
+gem 'best_in_place'
+
+
+
 

@@ -19,7 +19,7 @@ UPDATE STOCK for item "<%= @item.size %> <%= @item.item_name %>"
 Current Stock 
 <table> 
 <tr> 
-<td> <%= @item.current_stock[:stock] %> </td> 
+<td> <%= @item.current_stock %> </td> 
 </tr> 
 </table>
 <br>
@@ -30,13 +30,13 @@ New Stock <br>
 <br>
 <br> 
 <u> Select Sizes to Update</u> <br> 
-S <input type = radio name = is_small> <br> 
-M <input type = radio name = is_medium> <br>
-L <input type = radio name = is_large> <br>
-XL<input type = radio name = is_xl> <br>
+S <input type = checkbox name = is_small> <br> 
+M <input type = checkbox name = is_medium> <br>
+L <input type = checkbox name = is_large> <br>
+XL<input type = checkbox name = is_xl> <br>
 <br> 
 Deactivate?
-<input type = "radio" name = "deactivate"> 
+<input type = "checkbox" name = "deactivate"> 
 <br>
 <br>
 
@@ -46,9 +46,10 @@ Deactivate?
 <br> 
 UPDATE HISTORY 
 <table> 
-<% @item.updates.each do |update| %> 
+<% @item.updates.each do |update| 
+	t = update.updated_at %> 
 <tr> 
-<td> <%= update.updated_at %> </td>
+<td> <%= t.month %>/<%=t.day%>/<%=t.year%> @ <%=t.hour%>:<%=t.min %> </td>
 <td> <%= update.stock_change %> </td>
 </tr>
 <% end %> 

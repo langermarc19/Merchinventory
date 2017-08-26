@@ -27,7 +27,7 @@ MERCH INVENTORY - last updated at (reinsert ruby when the time comes) <br> <br>
 <tr> 
 <td><%= item.item_name  %> </td>
 <td><%= item.size %> </td> 
-<td><%= item.current_stock[:stock] %> </td>
+<td><%= item.current_stock %> </td>
 <td><a href = <%= "#{item.item_url}/view_updates#" %>
 <td><a href = <%= "#{item.item_url}/update_stock" %>> Update Stock </a></td>
 <td><a href = <%= "#{item.item_url}/show_edit"%>> Edit Item </a></td>
@@ -36,6 +36,8 @@ MERCH INVENTORY - last updated at (reinsert ruby when the time comes) <br> <br>
 
 </table>
 <br> 
+
+<%= 'Link to Update Stocks?' %> 
 
 <form action = "/inventory" method = "post"> 
 

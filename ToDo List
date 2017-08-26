@@ -4,25 +4,27 @@ Add to Merchinventory:
 Plotting?
 Ways to viszualize?
 
--stock can't be nil 
 -Square Subtraction 
--rewrite if statements in pagescontroller - Jonny syntax
 -add "type" attribute to item
--Sort list when rendered by type, alphabetical
+
 -sizes table, size foreign key 
 -item type table?
 -"edit" page styling 
 -notes on updates?
 -change for all sizes button on deactivate/reactivate link
 -Back to Inventory link on "deactivated"
--change "inventory" url to "items"
+-Item-specific update_id for Class Update. Denotes the number of times a specific item has been updated. 
+would help with problems like update_history 
+(or add stock_change directly to each update...)
+-Dynamic Stock field in-page
+-Also when you select sizes to update you can't deselect them
+
+
 -STYLE:
 1)Get everything centered.
 
-
-
--Item-specific update_id for Class Update. 
-would help with problems like update_history 
-(or add stock_change directly to each update...)
-
+Super Quick Shit: 
+- if syntax 
+-Sort list when rendered by type, alphabetical
+--change "inventory" url to "items"
 
