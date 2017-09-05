@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'pages#inventory'
+  root 'pages#items'
 
-  get '/inventory' , to: 'pages#inventory'
-  post '/inventory' , to: 'pages#post_add_item'
-
+  get '/items' , to: 'pages#items'
+  post '/items' , to: 'pages#post_add_item'
 
   get '/price_list', to: 'pages#price_list'
+
+
+  get '/update_stock', to: 'pages#update_stock'
+  post '/update_stock', to: 'pages#post_update_stock'
 
   get '/items/:id/update_stock', to: 'pages#update_stock'
   post '/items/:id/update_stock' , to: 'pages#post_update_stock'

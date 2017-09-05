@@ -1,6 +1,5 @@
 <html> 
 <head> 
-
 <style> 
 
 table, th, td {
@@ -12,37 +11,40 @@ table, th, td {
 }	
 
 </style>
+
+
 </head>
 
 <body>
-MERCH INVENTORY - last updated at (reinsert ruby when the time comes) <br> <br>
+MERCH INVENTORY - last updated at (Heroku problem with dates, redo eventually) <br> <br>
 <table> 
 <th>Item</th> 
 <th>Size</th> 
 <th>Stock</th> 
-<th>Updates</th>
+<th>Item History</th>
+<th>Edit Item</th>
 
 <% @items_list.each do |item| 
 	if item.is_active %>
 <tr> 
-<td><%= item.item_name  %> </td>
+<td><%= item.item_name %> </td>
 <td><%= item.size %> </td> 
 <td><%= item.current_stock %> </td>
-<td><a href = <%= "#{item.item_url}/view_updates#" %>
-<td><a href = <%= "#{item.item_url}/update_stock" %>> Update Stock </a></td>
+<td><a href = <%= "#{item.item_url}/item_history#" %>> Item History </a> 
 <td><a href = <%= "#{item.item_url}/show_edit"%>> Edit Item </a></td>
 </tr>
 <% end end %> 
 
+
 </table>
+<a href = <%= "/update_stock" %>>Update Stocks</a>
+<br>
 <br> 
 
-<%= 'Link to Update Stocks?' %> 
-
-<form action = "/items" method = "post"> 
 
 ADD NEW ITEM<br> 
 Item Name <br> 
+<form> 
 <input type = "text" name = "item_name"> 
 <br> 
 

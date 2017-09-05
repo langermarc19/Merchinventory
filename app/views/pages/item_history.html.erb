@@ -1,0 +1,14 @@
+
+
+UPDATE HISTORY 
+<table> 
+<th>Updated At</th> 
+<th>Amount Added/Sold </th>
+<% @item.updates.each do |update| 
+	t = update.updated_at %> 
+<tr> 
+<td> <%= t.month %>/<%=t.day%>/<%=t.year%> @ <%=t.hour%>:<%=t.min %> </td>
+<td> <%= update.stock_change %> </td>
+</tr>
+<% end %> 
+</table>

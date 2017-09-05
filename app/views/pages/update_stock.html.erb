@@ -14,52 +14,34 @@ table, th, td {
 </style>
 </head>
 <body>
-UPDATE STOCK for item "<%= @item.size %> <%= @item.item_name %>"
+
 <br> <br> 
-Current Stock 
-<table> 
+
+
+
+UPDATE STOCKS 
+<table>
+<th>Item</th>
+<th>Size</th>
+<th>Stock</th>
+<th>Deactivate</th>
+
+<form method = "post">
+
+<% @items_list.each do |item| 
+	if item.is_active %>
 <tr> 
-<td> <%= @item.current_stock %> </td> 
-</tr> 
-</table>
-<br>
+<td><%= item.item_name %> </td>
+<td><%= item.size %> </td> 
+<td><input type = "integer" name = <%= "#{item.id}" %> value = <%= item.current_stock %>> </td>
 
-<form action = <%= "#{@item.item_url}/update_stock" %> method = "post"> 
-New Stock <br>
-<input type = "integer" name = "stock">
-<br>
-<br> 
-<u> Select Sizes to Update</u> <br> 
-S <input type = checkbox name = is_small> <br> 
-M <input type = checkbox name = is_medium> <br>
-L <input type = checkbox name = is_large> <br>
-XL<input type = checkbox name = is_xl> <br>
-<br> 
-Deactivate?
-<input type = "checkbox" name = "deactivate"> 
-<br>
-<br>
-
-<input type = "submit">
-</form>
-
-<br> 
-UPDATE HISTORY 
-<table> 
-<% @item.updates.each do |update| 
-	t = update.updated_at %> 
-<tr> 
-<td> <%= t.month %>/<%=t.day%>/<%=t.year%> @ <%=t.hour%>:<%=t.min %> </td>
-<td> <%= update.stock_change %> </td>
 </tr>
-<% end %> 
-</table>
 
-
-
-
-
-
+<% end end %> 
+</table> 
+<input type = "submit"> 
+</form>
+<br> <br> 
 
 
 

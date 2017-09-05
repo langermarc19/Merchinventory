@@ -1,30 +1,28 @@
-Add to Merchinventory: 
+Add to Merchinventory: 	
 
+CHANGES:
 -View Updates
 Plotting?
 Ways to viszualize?
-
 -Square Subtraction 
--add "type" attribute to item
-
 -sizes table, size foreign key 
--item type table?
+-item type table? - working
+-Sort table by type
 -"edit" page styling 
--notes on updates?
 -change for all sizes button on deactivate/reactivate link
--Back to Inventory link on "deactivated"
+
+
 -Item-specific update_id for Class Update. Denotes the number of times a specific item has been updated. 
 would help with problems like update_history 
 (or add stock_change directly to each update...)
+
 -Dynamic Stock field in-page
 -Also when you select sizes to update you can't deselect them
-
-
--STYLE:
+---------------------------------------------------------------------------------------
+STYLE:
 1)Get everything centered.
+---------------------------------------------------------------------------------------
+QUICK STUFF: 
 
-Super Quick Shit: 
-- if syntax 
--Sort list when rendered by type, alphabetical
---change "inventory" url to "items"
+
 
