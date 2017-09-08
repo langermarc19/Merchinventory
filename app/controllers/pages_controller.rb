@@ -1,13 +1,11 @@
-#require 'item.rb'
-
 class PagesController < ApplicationController
 	#respond_to :html, :json
 	
 	skip_before_action :verify_authenticity_token
 
-	before_action :set_items_list, only: [:post_add_item, :post_update_stock, :update_stock, :items, :edit, :show_edit, :reactivate]
-	before_action :set_item, only: [:edit, :show_edit, :reactivate, :view_updates]
-	before_action :set_update_history, only: [:update_history]
+	before_action :set_items_list, only: [:details, :post_add_item, :post_update_stock, :update_stock, :items, :post_edit, :show_edit, :reactivate]
+	before_action :set_item, only: [:details, :edit, :post_edit, :reactivate, :view_updates]
+	before_action :set_update_history, only: [:update_history]	
 
 
 	def post_add_item
@@ -29,29 +27,18 @@ class PagesController < ApplicationController
 			item.update_stock(element[1])
 		end
 
-			#if object[:deactivate] 
-				#item.deactivate end
-
-
 		render :items 
 
 	end
 
-	def edit
+	def post_edit
 		@id = params[:id]
+		@item.item_name = params[:item_name]
+		@item.size = params[:size]
+		@item.price = params[:price]
+		@item.save
 		
-
-		if params[:delete?] 
-			@item.destroy
-
-		else 
-			@item.item_name = params[:item_name]
-			@item.size = params[:size]
-			@item.price = params[:price]
-			@item.save
-		end
-		
-		render :items	
+		render :items
 	end
 
 
@@ -79,6 +66,16 @@ class PagesController < ApplicationController
 	def deactivated 
 		@deac_items_list = Item.where({is_active: false})
 	end
+
+	def details 
+		@item.deactivate if params[:deactivate?]
+		@item.destroy if params[:delete?]
+
+		render :details
+	end
+
+
+
 
 
 

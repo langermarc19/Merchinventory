@@ -1,0 +1,61 @@
+<html> 
+<head> 
+<style> 
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 10px;
+	color: black;
+}	
+
+</style>
+</head>
+<body> 
+
+<u><%= @item.item_name %>, <%=@item.size%></u>
+<br> <br> 
+
+(Item Photo Goes here) 
+<br> <br> 
+
+<u>Item's Current Attributes </u>
+<table> 
+<tr> <td><b>Name</b></td> <td><%= @item.item_name %></td></tr>
+<tr> <td><b>Size</b></td> <td><%= @item.size %></td></tr>
+<tr> <td><b>Price</b></td> <td>$<%= @item.price %></td></tr> 
+<tr> <td><b>Item ID</b></td> <td><%= @item.id %></td></tr>
+</table>
+
+<a href = <%="/items/#{@item.id}/edit"%>>Edit Item Attributes</a>
+
+<br><br> 
+
+<u>Update History for <%=@item.item_name%>, Size <%=@item.size%></u>
+<table> 
+<th>Updated At</th> 
+<th>Amount Added/Sold </th>
+<% @item.updates.each do |update| 
+	t = update.updated_at %> 
+<tr> 
+<td> <%=t.month%>/<%=t.day%>/<%=t.year%> @ <%=t.hour%>:<%=t.min %> </td>
+<td> <%= update.stock_change %> </td>
+</tr>
+<% end %> 
+</table>
+
+<br>
+<u><b>Deactivate/Delete</b></u>
+<br> 
+<input type = "checkbox" name = deactivate?>Deactivate Item? (this will remove item from the inventory page)
+<br> 
+
+<input type = "checkbox" name = delete?>Delete? (warning: this will permanently delete the item and all its updates from the database)
+<br> 
+
+<input type = submit> 
+
+
+</body>
+</html>

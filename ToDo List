@@ -1,26 +1,31 @@
-Add to Merchinventory: 	
+To Do: 
 
-CHANGES:
+-"Item Details" page
+-Make Add new Item a separate page. 
+
 -View Updates
 Plotting?
 Ways to viszualize?
+
 -Square Subtraction 
--sizes table, size foreign key 
 -item type table? - working
 -Sort table by type
--"edit" page styling 
--change for all sizes button on deactivate/reactivate link
 
-
--Item-specific update_id for Class Update. Denotes the number of times a specific item has been updated. 
+-Item-specific update ID for Class Update 'item_update.' Denotes the number of times a specific item has been updated. 
 would help with problems like update_history 
 (or add stock_change directly to each update...)
 
--Dynamic Stock field in-page
--Also when you select sizes to update you can't deselect them
+-Adding notes to updates? 
+
+-"Sort By" feature on items page which allows to sort by item type, size, etc. 
+
+-Redo Deacticated Items Page
+
+
 ---------------------------------------------------------------------------------------
 STYLE:
 1)Get everything centered.
+2)Edit page is hella disorganized
 ---------------------------------------------------------------------------------------
 QUICK STUFF: 
 

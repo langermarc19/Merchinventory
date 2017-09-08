@@ -7,16 +7,15 @@ Rails.application.routes.draw do
 
   get '/price_list', to: 'pages#price_list'
 
-
   get '/update_stock', to: 'pages#update_stock'
   post '/update_stock', to: 'pages#post_update_stock'
 
   get '/items/:id/update_stock', to: 'pages#update_stock'
   post '/items/:id/update_stock' , to: 'pages#post_update_stock'
 
-  get '/items/:id/show_edit', to: 'pages#show_edit'
-  post '/items/:id/edit', to: 'pages#edit'
-  post 'items/:id/show_edit', to: 'pages#edit'
+  get '/items/:id/edit', to: 'pages#edit'
+  #post '/items/:id/edit', to: 'pages#edit'
+  post 'items/:id/edit', to: 'pages#post_edit'
 
   get '/deactivated', to: 'pages#deactivated'
 
@@ -27,7 +26,8 @@ Rails.application.routes.draw do
   get 'items/:id/view_updates', to: 'pages#view_updates'
   post 'items/:id/view_updates', to: 'pages#view_updates'
 
-
+  get 'items/:id/details', to: 'pages#details'
+  post 'items/:id/details', to: 'pages#details'
 
 
 

@@ -24,7 +24,6 @@ UPDATE STOCKS
 <th>Item</th>
 <th>Size</th>
 <th>Stock</th>
-<th>Deactivate</th>
 
 <form method = "post">
 
@@ -34,7 +33,6 @@ UPDATE STOCKS
 <td><%= item.item_name %> </td>
 <td><%= item.size %> </td> 
 <td><input type = "integer" name = <%= "#{item.id}" %> value = <%= item.current_stock %>> </td>
-
 </tr>
 
 <% end end %> 

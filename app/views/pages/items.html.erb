@@ -21,8 +21,7 @@ MERCH INVENTORY - last updated at (Heroku problem with dates, redo eventually) <
 <th>Item</th> 
 <th>Size</th> 
 <th>Stock</th> 
-<th>Item History</th>
-<th>Edit Item</th>
+<th>Item Details</th>
 
 <% @items_list.each do |item| 
 	if item.is_active %>
@@ -30,8 +29,7 @@ MERCH INVENTORY - last updated at (Heroku problem with dates, redo eventually) <
 <td><%= item.item_name %> </td>
 <td><%= item.size %> </td> 
 <td><%= item.current_stock %> </td>
-<td><a href = <%= "#{item.item_url}/item_history#" %>> Item History </a> 
-<td><a href = <%= "#{item.item_url}/show_edit"%>> Edit Item </a></td>
+<td><a href = <%= "#{item.item_url}/details" %>> Item Details </a> 
 </tr>
 <% end end %> 
 

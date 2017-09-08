@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
 	has_many :updates, dependent: :destroy
-	belongs_to :types
 
 	#before_action :set_update_list, only: [:set_updates_list]
 

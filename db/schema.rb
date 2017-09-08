@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828143501) do
+ActiveRecord::Schema.define(version: 20170908222249) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "item_name"
@@ -19,14 +19,6 @@ ActiveRecord::Schema.define(version: 20170828143501) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_active"
-    t.bigint "type_id"
-    t.index ["type_id"], name: "fk_rails_4dd0afa363"
-  end
-
-  create_table "types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "type_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "updates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -34,10 +26,8 @@ ActiveRecord::Schema.define(version: 20170828143501) do
     t.integer "stock", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "notes"
     t.index ["item_id"], name: "fk_rails_aa76e5dc0b"
   end
 
-  add_foreign_key "items", "types"
   add_foreign_key "updates", "items"
 end
