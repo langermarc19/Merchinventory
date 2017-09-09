@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 	
 	skip_before_action :verify_authenticity_token
 
-	before_action :set_items_list, only: [:details, :post_add_item, :post_update_stock, :update_stock, :items, :post_edit, :show_edit, :reactivate]
+	before_action :sort_items, only: [:details, :post_add_item, :post_update_stock, :update_stock, :items, :post_edit, :show_edit, :reactivate, :post_new_item]
 	before_action :set_item, only: [:details, :edit, :post_edit, :reactivate, :view_updates]
 	before_action :set_update_history, only: [:update_history]	
 
@@ -73,6 +73,29 @@ class PagesController < ApplicationController
 
 		render :details
 	end
+
+	def post_new_item
+		@item_name = params[:item_name]
+		@size = params[:size]
+		@price = params[:price]
+
+		Item.add_item(@item_name, @size, @price) 
+		render :items
+	end
+
+	def sort_items
+		#if params[:by_name?]
+		@items_list = Item.where('is_active = true').order(item_name: :asc)
+
+		#if params[:by_stock?]
+		#@items_list = Item.where('is_active = true').order(stock: :asc)
+
+
+		#if params[:by_size?]
+		#@items_list = Item.where('is_active = true').order(size: :asc)
+
+	end
+
 
 
 

@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   post '/items/:id/update_stock' , to: 'pages#post_update_stock'
 
   get '/items/:id/edit', to: 'pages#edit'
-  #post '/items/:id/edit', to: 'pages#edit'
   post 'items/:id/edit', to: 'pages#post_edit'
 
   get '/deactivated', to: 'pages#deactivated'
@@ -29,7 +28,8 @@ Rails.application.routes.draw do
   get 'items/:id/details', to: 'pages#details'
   post 'items/:id/details', to: 'pages#details'
 
-
+  get '/items/new_item', to: 'pages#new_item'
+  post '/items/new_item', to: 'pages#post_new_item'
 
  
 

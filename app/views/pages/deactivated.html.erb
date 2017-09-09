@@ -19,17 +19,15 @@ Deactivated Items <br> <br>
 <table>  
 <th>Item</th> 
 <th>Size</th> 
-<th>Stock</th> 
-<th>Updates</th>
+<th>Details</th> 
 <th> Reactivate </th>
 
 <% @deac_items_list.each do |item| %> 
 <tr> 
 <td><%= item.item_name  %> </td>
 <td><%= item.size %> </td> 
-<td><a href = <%= "#{item.item_url}/update_stock" %>> Update Stock </a></td>
-<td><a href = <%= "#{item.item_url}/show_edit"%>> Edit Item </a></td>
-<td><a href = <%= "#{item.item_url}/reactivate" %>> Reactivate </a></td>
+<td><a href = <%= "#{item.item_url}/details" %>>Item Details</a></td>
+<td><a href = <%= "#{item.item_url}/reactivate" %>>Reactivate</a></td>
 </tr>
 <% end %> 
 
