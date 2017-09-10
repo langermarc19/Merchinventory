@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 	#respond_to :html, :json
 	
+	
 	skip_before_action :verify_authenticity_token
 
 	before_action :sort_items, only: [:details, :post_add_item, :post_update_stock, :update_stock, :items, :post_edit, :show_edit, :reactivate, :post_new_item]
@@ -84,10 +85,13 @@ class PagesController < ApplicationController
 	end
 
 	def sort_items
+		size_order = ["S","M","L","XL","Red","Blue","Yellow"]
+		#default sort: by name, size 
 		#if params[:by_name?]
 		@items_list = Item.where('is_active = true').order(item_name: :asc)
+		@items_list = @items_list.sort_by {|i| [i.item_name, size_order.index(i.size)]}
 
-		#if params[:by_stock?]
+		#if params[:by_stock?]	
 		#@items_list = Item.where('is_active = true').order(stock: :asc)
 
 
@@ -95,8 +99,6 @@ class PagesController < ApplicationController
 		#@items_list = Item.where('is_active = true').order(size: :asc)
 
 	end
-
-
 
 
 
