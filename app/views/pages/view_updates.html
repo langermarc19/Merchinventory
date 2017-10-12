@@ -15,19 +15,17 @@ table, th, td {
 </head>
 
 <body>
-MERCH INVENTORY - last updated at (reinsert ruby when the time comes) <br> <br>
+Update List for Item: "<%= @item.item_name%>" Size: <%= @item.size %>  <br> <br>
 <table> 
-<th>Item</th> 
-<th>Size</th> 
-<th>Stock</th> 
-<th>Updates</th>
+<th>Updated At</th> 
+<th>Stock Change</th> 
+<th>Notes</th> 
 
-<% @items_list.each do |item| 
-	if item.is_active %>
+<% @item.updates_list.each do |update|   %>
 <tr> 
-<td><%= item.item_name  %> </td>
-<td><%= item.size %> </td> 
-<td><%= item.current_stock %> </td>
+<td><%= update.updated_at  %> </td>
+<td><%= update.stock_diff(update, ) %> </td> 
+<td><%= item.current_stock[:stock] %> </td>
 <td><a href = <%= "#{item.item_url}/view_updates#" %>
 <td><a href = <%= "#{item.item_url}/update_stock" %>> Update Stock </a></td>
 <td><a href = <%= "#{item.item_url}/show_edit"%>> Edit Item </a></td>
@@ -37,9 +35,7 @@ MERCH INVENTORY - last updated at (reinsert ruby when the time comes) <br> <br>
 </table>
 <br> 
 
-<%= 'Link to Update Stocks?' %> 
-
-<form action = "/items" method = "post"> 
+<form action = "/inventory" method = "post"> 
 
 ADD NEW ITEM<br> 
 Item Name <br> 
@@ -65,4 +61,3 @@ Price <br>
 
 </body>
 </html>
-

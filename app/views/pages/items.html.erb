@@ -1,0 +1,43 @@
+<html> 
+<head> 
+<style> 
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 10px;
+	color: black;
+}	
+
+</style>
+</head>
+<body>
+MERCH INVENTORY - last updated at <%= Update.last.created_at.time %> <br> <br>
+<table class = "center"> 
+	<th>Item</th> 
+	<th>Size</th> 
+	<th>Stock</th> 
+	<th>Item Details</th>
+
+	<% @items_list.each do |item| %>
+
+	<tr> 
+		<td><%= item.item_name %> </td>
+		<td><%= item.size %> </td> 
+		<td><%= item.current_stock %> </td>
+		<td><a href = <%= "#{item.item_url}/details" %>> Item Details </a> 
+	</tr>
+	<% end %> 
+</table>
+
+<a href = <%= "/update_stock" %>>Update Stocks</a>
+<br>
+<br> 
+<a href = "/items/new_item">Add New Item</a>
+<br> 
+<br> 
+<a href = '/deactivated'>See Deactivated Items </a>  
+</body>
+</html>
+

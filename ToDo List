@@ -1,0 +1,36 @@
+To Do: 
+
+-"Item Details" page
+
+-View Updates
+Plotting?
+Ways to viszualize?
+
+-Square Subtraction 
+-item type table? - working
+-Sort table by type
+
+-Item-specific update ID for Class Update 'item_update.' Denotes the number of times a specific item has been updated. 
+would help with problems like update_history 
+(or add stock_change directly to each update...)
+
+-Adding notes to updates? 
+
+-"Sort By" feature on items page which allows to sort by item type, size, etc. 
+
+-Add initial stock to "add item" page 
+
+-Add validation on size: can't be nil because then I can't sort it. 
+
+- Why does update stock only work if I reload the page FIRST. Doesn't submit if I navigate to /update_stock from /items 
+
+- why does "edit item" only take the first word from the item name 
+
+---------------------------------------------------------------------------------------
+STYLE:
+1)Get everything centered.
+---------------------------------------------------------------------------------------
+QUICK STUFF: 
+
+
+

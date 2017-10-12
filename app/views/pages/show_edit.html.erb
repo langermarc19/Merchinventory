@@ -1,0 +1,41 @@
+<html> 
+<head> 
+<style> 
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 10px;
+	color: black;
+}	
+</style>
+</head>
+<body>
+EDIT ITEM "<%= @item.size %> <%= @item.item_name %>"
+<br> <br>
+Current Item attributes 
+<br>  
+Name = <%= @item.item_name %> <br>
+Size = <%= @item.size %> <br>
+Price = <%= @item.price %> <br> <br> 
+<form method = "post"> 
+New Item Name = 
+<input type = "text" name = item_name value = <%= @item.item_name %>> <br>	
+New Size (S, M, L, XL) = 
+<input type = "text" name = size value = <%= @item.size %>> <br>
+New Price (float) =
+<input type = "number" step = "0.01" min = "0" name ="price" value = <%= @item.price %>>  <br>
+Delete? (warning: this will delete the item and all its updates from the database) = 
+<input type = "checkbox" name = delete?> <br>
+<br> 
+<input type = submit> 
+</form>
+ 
+
+
+
+	
+
+
+</body>
+</html>

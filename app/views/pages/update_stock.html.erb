@@ -1,50 +1,34 @@
 <html> 
 <head> 
-
 <style> 
-
 table, th, td {
 	border: 1px solid black;
-	border-collapse: collapse;
+	border-collapse: collapse; 
 	text-align: center;
 	padding: 10px;
 	color: black;
 }	
-
 </style>
 </head>
 <body>
-UPDATE STOCK for item "<%= @item.size %> <%= @item.item_name %>"
-<br> <br> 
-Current Stock 
-<table> 
-<tr> 
-<td> <%= @item.current_stock[:stock] %> </td> 
-</tr> 
-</table>
-<br>
-
-<form action = <%= "#{@item.item_url}/update_stock" %> method = "post"> 
-New Stock <br>
-<input type = "integer" name = "stock">
-<br>
-<br> 
-Deactivate?
-<input type = "radio" name = "deactivate"> 
-<br>
-<br>
-
-<input type = "submit">
-
-</form>
-
-<!Must take id passed from item on inventory page, and also add id to params for post_update_stock automatically >
-
-
-
-
-
-
+<br> <br>
+UPDATE STOCKS
+<form method = "post"> 
+	<table class = "center">
+		<th>Item</th>
+		<th>Size</th>
+		<th>Stock</th>
+		<% @items_list.each do |item| %>
+		<tr> 
+			<td><%= item.item_name %> </td>
+			<td><%= item.size %> </td> 
+			<td><input type = "integer" name = <%= "#{item.id}" %> value = <%= item.current_stock %>> </td>
+		</tr>
+		<% end %> 
+	</table> 
+	<input type = "submit"> 
+</form> <br> 
+<a href = "/items">Return to Inventory </a> <br> <br> 
 </body>
 </html>
 

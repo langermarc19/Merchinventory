@@ -1,0 +1,39 @@
+<html> 
+<head> 
+
+<style> 
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 10px;
+	color: black;
+}	
+
+</style>
+</head>
+
+<body>
+Deactivated Items <br> <br>
+<table>  
+<th>Item</th> 
+<th>Size</th> 
+<th>Details</th> 
+<th> Reactivate </th>
+
+<% @deac_items_list.each do |item| %> 
+<tr> 
+<td><%= item.item_name  %> </td>
+<td><%= item.size %> </td> 
+<td><a href = <%= "#{item.item_url}/details" %>>Item Details</a></td>
+<td><a href = <%= "#{item.item_url}/reactivate" %>>Reactivate</a></td>
+</tr>
+<% end %> 
+
+</table>
+
+<a href = '/items'> Return to Inventory </a>
+
+</body>
+</html>
