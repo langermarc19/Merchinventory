@@ -31,3 +31,4 @@ ActiveRecord::Schema.define(version: 20170908222249) do
 
   add_foreign_key "updates", "items"
 end
+

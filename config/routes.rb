@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post '/update_stock', to: 'pages#post_update_stock'
 
   get '/items/:id/update_stock', to: 'pages#update_stock'
-  post '/items/:id/update_stock' , to: 'pages#post_update_stock'
+  post '/items/:id/update_stock' , to: 'pages#update_stock'
 
   get '/items/:id/edit', to: 'pages#edit'
   post 'items/:id/edit', to: 'pages#post_edit'

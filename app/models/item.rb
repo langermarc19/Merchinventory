@@ -16,6 +16,8 @@ class Item < ApplicationRecord
 		u.item_id = i.id 
 		u.stock = 0
 		u.save!
+
+		return i 
 	end
 
 	def deactivate

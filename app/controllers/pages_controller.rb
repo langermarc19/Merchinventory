@@ -20,6 +20,7 @@ class PagesController < ApplicationController
 
 	def post_update_stock 
 		ActionController::Parameters.permit_all_parameters = true
+
 		params_hash = params.except(:controller, :action).to_h
 		params_ary = params_hash.to_a
 
@@ -28,9 +29,10 @@ class PagesController < ApplicationController
 			item.update_stock(element[1])
 		end
 
-		render :items 
+		render :items
 
 	end
+
 
 	def post_edit
 		@id = params[:id]
@@ -76,18 +78,17 @@ class PagesController < ApplicationController
 	end
 
 	def post_new_item
-		@item_name = params[:item_name]
-		@size = params[:size]
-		@price = params[:price]
+		i = Item.add_item(params[:item_name], params[:size], params[:price]) 
+		i.update_stock(params[:stock])
 
-		Item.add_item(@item_name, @size, @price) 
 		render :items
 	end
 
 	def sort_items
 		size_order = ["S","M","L","XL","Red","Blue","Yellow"]
-		#default sort: by name, size 
-		#if params[:by_name?]
+		
+		#default sort: by name, sizxe 
+		#if params[:default?]
 		@items_list = Item.where('is_active = true').order(item_name: :asc)
 		@items_list = @items_list.sort_by {|i| [i.item_name, size_order.index(i.size)]}
 
