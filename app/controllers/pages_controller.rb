@@ -39,7 +39,7 @@ class PagesController < ApplicationController
 		@item.item_name = params[:item_name]
 		@item.size = params[:size]
 		@item.price = params[:price]
-		@item.save
+		@item.save!
 		
 		render :items
 	end

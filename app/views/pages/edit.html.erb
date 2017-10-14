@@ -19,14 +19,15 @@ Name = <%= @item.item_name %> <br>
 Size = <%= @item.size %> <br>
 Price = <%= @item.price %> <br> <br> 
 <form method = "post"> 
-New Item Name = 
-<input type = "text" name = item_name value = <%=@item.item_name%>> <br>	
-New Size (S, M, L, XL) = 
-<input type = "text" name = size value = <%= @item.size %>> <br>
-New Price (float) =
-<input type = "number" step = "0.01" min = "0" name ="price" value = <%= @item.price %>>  <br>
-<br> 
-<input type = submit> 
+
+	New Item Name = 
+	<input type = "text" name = item_name > <br>	
+	New Size (S, M, L, XL) = 
+	<input type = "text" name = size > <br>
+	New Price (float) =
+	<input type = "number" step = "0.01" min = "0" name ="price"> <br> <br> 
+	<input type = submit> 
+
 </form>
  
 
