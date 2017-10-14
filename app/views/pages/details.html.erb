@@ -13,7 +13,7 @@ table, th, td {
 </head>
 <body> 
 <u><%= @item.item_name %>, <%=@item.size%></u> <br> <br>
-<!#image_tag("merchpics/#{@item.item_name}.jpg", alt = "NO IMAGE AVAILABLE")%> <br> <br> 
+<%= image_tag("merchpics/#{@item.item_name}.jpg"%> <br> <br> 
 Item Attributes
 <table class = "center"> 
 	<tr> 
