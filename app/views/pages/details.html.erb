@@ -15,9 +15,10 @@ table, th, td {
 <body> 
 
 <u><%= @item.item_name %>, <%=@item.size%></u>
-<br> <br> 
+<br> <br>
 
-(Item Photo Goes here) 
+<%= image_tag("merchpics/#{@item.item_name}.jpg") %> 
+
 <br> <br> 
 
 <u>Item's Current Attributes </u>
