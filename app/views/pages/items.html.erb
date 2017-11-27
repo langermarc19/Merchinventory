@@ -13,15 +13,124 @@ table, th, td {
 </style>
 </head>
 <body>
+
 MERCH INVENTORY - last updated at <%= Update.last.created_at.time %> <br> <br>
-<table class = "center"> 
+
+
+<script id = "sort_table">
+
+	function sortTable (value) {
+		if (value == "item_name") {sortTableByName();}
+		if (value == "stock") {sortTableByStock();}
+		if (value == "size") {sortTableBySize();}
+}
+
+	//sorts by name 
+	function sortTableByName() {
+		console.log('sorting by name')
+		var table, rows, switching, i, x, y, shouldSwitch;
+		table = document.getElementById("merch_table");
+		switching = true;
+		while (switching) {
+			switching = false;
+			rows = table.getElementsByTagName("TR");
+			for (i = 1; i < (rows.length - 1); i++) {
+				shouldSwitch = false;
+				x = rows[i].getElementsByTagName("TD")[0];
+				y = rows[i + 1].getElementsByTagName("TD")[0];
+				if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+					shouldSwitch= true;
+					break;
+				}
+			}
+			if (shouldSwitch) {
+				rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+				switching = true;
+			}
+		}
+	}
+
+	//sorts by stock 
+	function sortTableByStock() {
+		console.log('sorting by stock')
+		var table, rows, switching, i, x, y, shouldSwitch;
+		table = document.getElementById("merch_table");
+		switching = true;
+		while (switching) {
+			switching = false;
+			rows = table.getElementsByTagName("TR");
+			for (i = 1; i < (rows.length - 1); i++) {
+				shouldSwitch = false;
+				x = rows[i].getElementsByTagName("TD")[2];  //rows[i].getElementsByTagName("TD")[k] is k'th element of i'th rows
+				y = rows[i + 1].getElementsByTagName("TD")[2];
+				if (x.innerHTML - y.innerHTML < 0) {
+					shouldSwitch= true;
+					break;
+				}
+			}
+			if (shouldSwitch) {
+				rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+				switching = true;
+			}
+		}
+	}
+
+	//Sorts by Size 
+	function sortTableBySize() {
+		console.log('sorting by size');
+
+		var table, rows, switching, i, x, y, shouldSwitch;
+		const sortOrder = {S: 1, M: 2, L: 3, XL: 4, Red: 5, Yellow: 6, Blue: 7};
+
+		table = document.getElementById("merch_table");
+		switching = true;
+		while (switching) {
+			switching = false;
+			rows = table.getElementsByTagName("TR");
+			console.log('in while loop')
+			for (i = 1; i < (rows.length - 1); i++) {
+				console.log('in for loop')
+				shouldSwitch = false;
+				x = rows[i].getElementsByTagName("TD")[1];  //rows[i].getElementsByTagName("TD")[k] is k'th element of i'th row
+				y = rows[i + 1].getElementsByTagName("TD")[1];
+
+				let xSorter = x.innerHTML.toString().trim();
+				let ySorter = y.innerHTML.toString().trim();
+
+				//console.log("xSorter = " xSorter)
+				//console.log("sortOrder[xSorter] = " sortOrder[xSorter])
+
+				if (sortOrder[xSorter] > sortOrder[ySorter]) {
+					console.log('in upper conditional')
+					shouldSwitch = true;
+					break;
+				}
+			}
+			if (shouldSwitch) {
+				console.log('in lower conditional')
+				rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+				switching = true;
+			}
+		}
+	}
+	
+</script>	
+
+Sort Merch By:
+<select id = "sort_options" onchange = "sortTable(this.value)"> 
+	<option value = "default">Default: Name -> Size</option>
+	<option value = "stock">Stock</option>
+	<option value = "size">Size</option>
+	<option value = "item_name">Item Name</option>
+</select>
+
+<table id = "merch_table" class = "center"> 
 	<th>Item</th> 
 	<th>Size</th> 
 	<th>Stock</th> 
 	<th>Item Details</th>
 
 	<% @items_list.each do |item| %>
-
 	<tr> 
 		<td><%= item.item_name %> </td>
 		<td><%= item.size %> </td> 
